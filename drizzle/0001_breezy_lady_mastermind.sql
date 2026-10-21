@@ -1,0 +1,42 @@
+CREATE TABLE `orders` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`accessToken` varchar(64) NOT NULL,
+	`productId` int NOT NULL,
+	`buyerName` varchar(80) NOT NULL,
+	`buyerEmail` varchar(320) NOT NULL,
+	`buyerMotto` varchar(80),
+	`amountCents` int NOT NULL,
+	`currency` varchar(3) NOT NULL,
+	`status` enum('pending','paid','refunded') NOT NULL DEFAULT 'pending',
+	`paymentRef` varchar(128),
+	`downloadsUsed` int NOT NULL DEFAULT 0,
+	`downloadsMax` int NOT NULL DEFAULT 3,
+	`licenseAcceptedAt` timestamp NOT NULL,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`paidAt` timestamp,
+	`expiresAt` timestamp,
+	CONSTRAINT `orders_id` PRIMARY KEY(`id`),
+	CONSTRAINT `orders_accessToken_unique` UNIQUE(`accessToken`)
+);
+--> statement-breakpoint
+CREATE TABLE `products` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`slug` varchar(96) NOT NULL,
+	`title` varchar(160) NOT NULL,
+	`description` text NOT NULL,
+	`year` int NOT NULL,
+	`priceCents` int NOT NULL,
+	`currency` varchar(3) NOT NULL DEFAULT 'USD',
+	`pageCount` int,
+	`baseFileKey` varchar(512) NOT NULL,
+	`previewImageUrl` text,
+	`coverNameXPct` int NOT NULL DEFAULT 50,
+	`coverNameYPct` int NOT NULL DEFAULT 82,
+	`coverNameSizePermille` int NOT NULL DEFAULT 45,
+	`stampColor` varchar(7) NOT NULL DEFAULT '#1B2A2B',
+	`active` boolean NOT NULL DEFAULT true,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `products_id` PRIMARY KEY(`id`),
+	CONSTRAINT `products_slug_unique` UNIQUE(`slug`)
+);

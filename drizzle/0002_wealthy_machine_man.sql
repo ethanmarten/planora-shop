@@ -1,0 +1,1 @@
+ALTER TABLE `products` ADD `mottoAbove` boolean DEFAULT false NOT NULL;
