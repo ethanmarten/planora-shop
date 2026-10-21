@@ -1,0 +1,18 @@
+[
+  {
+    "folder": "architecture-2027",
+    "slug": "architecture-2027",
+    "title": "Architecture Planner 2027",
+    "description": "A 120-page A5 planner made for architecture students: yearly and monthly calendars, weekly notes pages, a skills tracker, drawing-types and materials references, books and precedents, and the reminders you need to keep going. Your name is printed on the cover.\n\nDelivered as a PDF of A4 sheets with two A5 pages on each: print it, cut every sheet in half and bind the pages into your own notebook. A tablet version (A5 pages) is included.",
+    "year": 2027,
+    "pageCount": 120,
+    "priceCents": 999,
+    "currency": "USD",
+    "active": true,
+    "coverNameXPct": 50,
+    "coverNameYPct": 38,
+    "coverNameSizePermille": 30,
+    "stampColor": "#F4F0E8",
+    "mottoAbove": true
+  }
+]
